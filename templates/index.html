@@ -262,12 +262,14 @@ body {
 </head>
 
 <body>
+   
     <div class="notification" id="notification">
         <div class="notification-content">
             Welcome to Our Sentiment Analysis Tool!
         </div>
         <button class="overview-button" onclick="location.href='/overview'">Overview</button>
     </div>
+            {% if 'username' in session %}
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
            <a class="navbar-brand" href="#" id="logoPreviewLink">
@@ -310,7 +312,7 @@ body {
             </div>
         </div>
     </nav>
-
+              {% endif %}
     <div class="container-main">
         <div class="container-content">
             {% if 'username' in session %}
@@ -346,7 +348,7 @@ body {
                     </div>
                 </div>
             </div>
-
+                                  
         
             {% else %}
             <h1 class="mb-4 display-4">Engineering College Sentiment Analysis</h1>
