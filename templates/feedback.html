@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" href="path/to/your/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #007BFF, #00BFFF);
+            margin: 0;
+            padding bottom: 100px;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+        }
+@keyframes slideGradient {
+    0% {
+        background-position: -100% center; /* Start from left */
+    }
+    100% {
+        background-position: 100% center; /* Move to right */
+    }
+}
+        .navbar {
+            background: linear-gradient(to right, #343a40, #007bff);
+            height: 70px;
+            border-bottom: 2px solid #fff;
+        }
+
+        .navbar-toggler {
+            display: block;
+            background-color: #007bff;
+        }
+
+        .navbar-toggler-icon {
+            cursor: pointer;
+        }
+
+        .navbar-toggler-icon::before,
+        .navbar-toggler-icon::after {
+            content: '\00a0';
+            display: block;
+            height: 2px;
+            width: 30px;
+            background-color: #fff;
+            margin: 6px 0;
+        }
+
+        .navbar-collapse {
+            display: none;
+        }
+
+        .navbar-collapse.show {
+            display: flex;
+            background-color: #343a40; /* Dark background for the collapsed menu */
+            padding: 15px;
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: #fff !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffc107 !important;
+        }
+
+        main {
+            flex: 1;
+            text-align: center;
+            padding-top: 70px;
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+       .footer {
+  background-color: #242527;
+  color: #fff;
+  border-top: 2px solid #fff;
+  text-align: center;
+  padding: 15px 0;
+  width: 100%;
+  margin-top: auto;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.footer .social-links {
+  margin-top: 6px;
+}
+
+.footer .social-links a {
+  color: #fff;
+  margin: 0 12px;
+  font-size: 24px;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.footer .social-links a:hover {
+  color: #FFC000; /* Yellow hover effect */
+  transform: scale(1.2);
+}
+
+
+        #feedbackCard {
+            width: 400px;
+            background: #3498db;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            margin-top: 130px;
+        }
+        h2 {
+            color: #ffffff;
+            font-size: 24px;
+        }
+
+        
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        input,
+        textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ffffff;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+            background-color: #3498db;
+            color: #ffffff;
+        }
+        input:focus,
+        textarea:focus {
+            border-color: #ffffff;
+        }
+        .error-message {
+            color: #dc3545;
+            font-size: 14px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+        #backBtn,
+        #submitFeedbackBtn {
+            background-color: #ffffff;
+            color: #3498db;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            margin-top: 10px; /* Add margin to the top of the buttons */
+        }
+        #backBtn:hover,
+        #submitFeedbackBtn:hover {
+            background-color: #4caf50;
+            color: #ffffff;
+        }
+        #backBtn {
+            margin-right: 10px;
+        }
+       
+        .social-icons a {
+            color: #fff;
+            margin-right: 10px;
+            transition: color 0.3s; /* Add a transition for a smooth color change */
+        }
+        .social-icons a:hover {
+            color: #FFC000;
+        }
+        .navbar-brand:hover,
+        .navbar-nav .nav-link:hover,
+        .social-icon:hover {
+            transform: scale(1.1);
+        }
+    </style>
+       <meta name="csrf-token" content="{{ csrf_token() }}">
+</head>
+<body>
+     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container" >
+            <a class="navbar-brand" href="#">Sentiment Analysis</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/overview">Overview</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/feedback">Feedback</a>
+                    </li>
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link" href="/team">Team</a>-->
+<!--                    </li>-->
+<!--                    <li class="nav-item">-->
+<!--                        <a class="nav-link" href="/contact">Contact</a>-->
+<!--                    </li>-->
+
+                     <li class="nav-item">
+                        <a class="nav-link" href="/index2">colleges</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/sentiment_reviews"> Reviews</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    </div>
+</div>
+    <div id="feedbackCard" >
+    
+        <h2>Feedback Form</h2>
+        <form id="form" method="post" >
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+            <span class="error-message" id="email-error"></span>
+            <label for="rating">Rating (1-5):</label>
+            <input type="number" id="rating" name="rating" min="1" max="5" step="1" required>
+            <span class="error-message" id="rating-error"></span>
+            <label for="comments">Comments:</label>
+            <textarea id="comments" name="comments" rows="4" required></textarea>
+            <button type="button" id="backBtn" onclick="history.back()">Back</button>
+            <button type="button" id="submitFeedbackBtn" onclick="submitFeedback()">Submit Feedback</button>
+        </form>
+    </div>
+   <footer class="footer">
+  <div class="container text-center">
+    <p>&copy; 2024 Engineering College Sentiment Analysis</p>
+    <div class="social-links">
+     <p class="social-icons">
+                Follow us on social media:
+                     <a href="https://www.linkedin.com/in/shreyas-panchal-107361151" class="fab fa-linkedin-in"></a>
+                <a href="https://www.instagram.com/_shreyas_7" class="fab fa-instagram"></a>
+                <a href="https://github.com/sreyas999" class="fab fa-github"></a>
+            </p>
+    </div>
+  </div>
+</footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <script>
+    function submitFeedback() {
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var rating = document.getElementById('rating').value;
+        var comments = document.getElementById('comments').value;
+
+        var csrf_token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+        var data = {
+            name: name,
+            email: email,
+            rating: rating,
+            comments: comments
+        };
+
+        fetch('/submit_feedback', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrf_token
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+            Swal.fire({
+                title: data.title,
+                text: data.text,
+                icon: data.icon
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+</script>
+
+</body>
+</html>

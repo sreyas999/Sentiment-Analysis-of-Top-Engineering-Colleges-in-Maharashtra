@@ -1,0 +1,7 @@
+Flask
+Werkzeug
+pandas
+matplotlib
+flask-mail
+flask-wtf
+scikit-learn
