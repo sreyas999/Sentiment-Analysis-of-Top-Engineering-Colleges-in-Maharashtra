@@ -58,7 +58,7 @@ project-folder/
 ![Landing Page](screenshots/landing-page.png)
 
 ### 2. Select College & Enter Keyword
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](https://github.com/sreyas999/Sentiment-Analysis-of-Top-Engineering-Colleges-in-Maharashtra/blob/main/screenshots/Dashboard.png)
 
 ### 3. Sentiment Analysis Result Overview
 ![Sentiment Result](screenshots/sentiment-result.png)
