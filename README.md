@@ -55,19 +55,19 @@ project-folder/
 ## 📸 Screenshots
 
 ### 1. Engineering College Sentiment Analysis – Landing Page
-![Landing Page](screenshots/landing-page.png)
+![Landing Page](https://github.com/sreyas999/Sentiment-Analysis-of-Top-Engineering-Colleges-in-Maharashtra/blob/main/screenshots/Landing%20Page.png)
 
 ### 2. Select College & Enter Keyword
 ![Dashboard](https://github.com/sreyas999/Sentiment-Analysis-of-Top-Engineering-Colleges-in-Maharashtra/blob/main/screenshots/Dashboard.png)
 
 ### 3. Sentiment Analysis Result Overview
-![Sentiment Result](screenshots/sentiment-result.png)
+![Sentiment Result](https://github.com/sreyas999/Sentiment-Analysis-of-Top-Engineering-Colleges-in-Maharashtra/blob/main/screenshots/Sentiment%20Result.png)
 
 ### 4. Top Engineering Colleges in Maharashtra
-![Top Colleges](screenshots/top-colleges.png)
+![Top Colleges](https://github.com/sreyas999/Sentiment-Analysis-of-Top-Engineering-Colleges-in-Maharashtra/blob/main/screenshots/College%20Reviews.png)
 
 ### 5. College Reviews – Detailed Review Table
-![College Reviews](screenshots/college-reviews.png)
+![College Reviews](https://github.com/sreyas999/Sentiment-Analysis-of-Top-Engineering-Colleges-in-Maharashtra/blob/main/screenshots/College%20Reviews.png)
 
 ---
 
