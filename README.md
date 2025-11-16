@@ -64,8 +64,7 @@ project-folder/
 ![Sentiment Result](https://github.com/sreyas999/Sentiment-Analysis-of-Top-Engineering-Colleges-in-Maharashtra/blob/main/screenshots/Sentiment%20Result.png)
 
 ### 4. Top Engineering Colleges in Maharashtra
-![Top Colleges](https://github.com/sreyas999/Sentiment-Analysis-of-Top-Engineering-Colleges-in-Maharashtra/blob/main/screenshots/College%20Reviews.png)
-
+![Top Colleges](https://github.com/sreyas999/Sentiment-Analysis-of-Top-Engineering-Colleges-in-Maharashtra/blob/main/screenshots/Top%20Colleges.png)
 ### 5. College Reviews – Detailed Review Table
 ![College Reviews](https://github.com/sreyas999/Sentiment-Analysis-of-Top-Engineering-Colleges-in-Maharashtra/blob/main/screenshots/College%20Reviews.png)
 
